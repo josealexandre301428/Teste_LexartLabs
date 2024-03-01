@@ -18,7 +18,7 @@ const Users = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   }, {
-    timestamps: false,
+    timestamps: true,
     tableName: 'Users',
   });
 

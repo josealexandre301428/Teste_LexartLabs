@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const jwt_decode = require('jwt-decode');
+const jwt = require('jsonwebtoken');
 const db = require('../db/models');
 const ValidateError = require('../middlewares/ValidateError');
 
@@ -24,9 +24,17 @@ const loginService = {
 
     if (!dataValues) throw new ValidateError(400, 'Incorrect email or password');
 
-    const JwtDecode = jwt_decode(dataValues.password);
+    const JwtDecode = jwt.decode(dataValues.password);
+    
+    console.log(JwtDecode);
+    console.log(email);
+    
 
-    if (JwtDecode.password !== password) {
+    if (JwtDecode.data.email !== email) {
+      throw new ValidateError(401, 'Incorrect email or password');
+    }
+
+    if (JwtDecode.data.password !== password) {
       throw new ValidateError(401, 'Incorrect email or password');
     }
     console.log(dataValues);
