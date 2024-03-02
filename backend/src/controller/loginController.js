@@ -4,6 +4,7 @@ const loginController = {
   async login(req, res) {
     try {
       const response = await loginService.login(req.body);
+      console.log(response);
 
       return res.status(200).json(response);
     } catch (error) {

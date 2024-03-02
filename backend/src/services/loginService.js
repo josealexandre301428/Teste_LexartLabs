@@ -27,14 +27,14 @@ const loginService = {
     const JwtDecode = jwt.decode(dataValues.password);
     
     console.log(JwtDecode);
-    console.log(email);
+    console.log(JwtDecode.email);
     
 
-    if (JwtDecode.data.email !== email) {
+    if (JwtDecode.email !== email) {
       throw new ValidateError(401, 'Incorrect email or password');
     }
 
-    if (JwtDecode.data.password !== password) {
+    if (JwtDecode.password !== password) {
       throw new ValidateError(401, 'Incorrect email or password');
     }
     console.log(dataValues);
