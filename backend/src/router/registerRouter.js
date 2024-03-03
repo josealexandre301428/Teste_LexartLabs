@@ -3,6 +3,6 @@ const registerController = require('../controller/registerController');
 
 const registerRouter = Router();
 
-registerRouter.post('/', registerController.register);
+registerRouter.post('/register', registerController.register);
 
 module.exports = registerRouter;
