@@ -1,5 +1,9 @@
-const Users = (sequelize, DataTypes) => {
-  const Users = sequelize.define('Users', {
+const { DataTypes, Model} = require('sequelize');
+
+class UsersModels extends Model {
+  static init(sequelize) {
+    return super.init(
+      {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -18,14 +22,13 @@ const Users = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   }, {
+    sequelize,
+    modelName: 'Users',
     timestamps: true,
-    tableName: 'Users',
-  });
+  }
+);
+}
+}
 
-  Users.associate = (models) => {
-  };
+module.exports = UsersModels;
 
-  return Users;
-};
-
-module.exports = Users;

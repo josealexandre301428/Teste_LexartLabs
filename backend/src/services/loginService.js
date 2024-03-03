@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
-const db = require('../db/models');
+const Users = require('../db/models/users');
 const ValidateError = require('../middlewares/ValidateError');
 
 const schema = Joi.object({
@@ -18,16 +18,14 @@ const loginService = {
 
     const { email, password } = body;
 
-    const dataValues = await db.Users.findOne({
+    const dataValues = await Users.findOne({
       where: { email }, raw: true,
     });
 
     if (!dataValues) throw new ValidateError(400, 'Incorrect email or password');
 
     const JwtDecode = jwt.decode(dataValues.password);
-    
-    console.log(JwtDecode);
-    console.log(JwtDecode.email);
+  
     
 
     if (JwtDecode.email !== email) {
@@ -37,7 +35,8 @@ const loginService = {
     if (JwtDecode.password !== password) {
       throw new ValidateError(401, 'Incorrect email or password');
     }
-    console.log(dataValues);
+
+
     const token = dataValues.password;
     const { name, id } = dataValues;
 
