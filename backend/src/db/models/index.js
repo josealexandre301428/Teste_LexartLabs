@@ -1,7 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config()
 const { Client } = require('@vercel/postgres');
-const config = require('../config/config');
 
 const sequelize = new Sequelize(process.env.POSTGRES_URL, {
     dialect: 'postgres', // Defina o dialeto explicitamente
@@ -30,9 +29,11 @@ const db = {};
 
 // Importe os modelos aqui
 const UserModel = require('./users');
+const ProductModel = require('./products');
 
 // Inicialize os modelos
-db.User = UserModel.init(sequelize, DataTypes);
+db.users = UserModel.init(sequelize, DataTypes);
+db.products = ProductModel.init(sequelize, DataTypes);
 
 // Execute as associações (relacionamentos) entre os modelos, se houver
 Object.values(db)

@@ -3,6 +3,13 @@ const productsController = require('../controller/productsController');
 
 const productsRouter = Router();
 
-productsRouter.get('/products', productsController.getAll);
+// CREAT para unico produto ou multiplos produtos
+productsRouter.post('/create/:est', productsController.create);
+// READ
+productsRouter.get('/products', productsController.read);
+// UPDATE
+productsRouter.put('/update/:id', productsController.update);
+// DELETE
+productsRouter.delete('/delete/:id', productsController.delete);
 
 module.exports = productsRouter;

@@ -14,7 +14,7 @@ module.exports = {
       {
         name: 'Trybe dev',
         email: 'devTrybe@trybe.com',
-        password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVHJ5YmUgZGV2IiwiZW1haWwiOiJkZXZUcnliZUB0cnliZS5jb20iLCJwYXNzd29yZCI6InRyeWJlRGV2QDEyMyJ9.f5DEXqBUbWPUW7BZUGr1zXEAqqF-zgcp9oUHqu3YRwE',
+        password: 'eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IlRyeWJlIGRldiIsInBhc3N3b3JkIjoiZGV2VHJ5YmVAdHJ5YmUuY29tIn0.sEI97P6JBzLfrlStbk2rF6mI4V39ELSk2aWRz625jI0',
         createdAt: new Date(), 
         updatedAt: new Date()
         // senha: trybeDev@123

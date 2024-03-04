@@ -29,8 +29,9 @@ class ProductModels extends Model {
       type: DataTypes.STRING,
       allowNull: false,
     }}, {
+    sequelize,
     timestamps: true,
-    tableName: 'products',
+    tableName: 'Products',
   });  
 }
 }

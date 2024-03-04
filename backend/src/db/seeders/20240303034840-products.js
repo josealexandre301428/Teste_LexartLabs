@@ -2,7 +2,7 @@ const { DATE } = require("sequelize");
 
 module.exports = {
   up: async (queryInterface) => {
-    await queryInterface.bulkInsert('products', [
+    await queryInterface.bulkInsert('Products', [
       {
         name: "Xiaomi Redmi 9",
         brand: "Xiaomi",
@@ -15,6 +15,6 @@ module.exports = {
     ], {});
   },
   down: async (queryInterface) => {
-    await queryInterface.bulkDelete('products', null, {});
+    await queryInterface.bulkDelete('Products', null, {});
   },
 };
