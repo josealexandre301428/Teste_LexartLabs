@@ -1,14 +1,18 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import NotFound from './Pages/notFound/notFound';
-import LoginForm from './Pages/login/LoginForm';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NotFound from './Pages/notFound/NotFound';
+import LoginForm from './Pages/Login/LoginForm';
+import RegisterForm from './Pages/Register/RegisterForm';
 
 function App() {
   return (
     <BrowserRouter>
       <main>
         <Routes>
-          <Route path="/login" element={<LoginForm />} />
+          <Route exact path="/" element={<LoginForm />} />
+          <Route exact path="/registro" element={<RegisterForm />} />
+          
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </BrowserRouter>
