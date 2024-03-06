@@ -4,7 +4,7 @@ const productsController = require('../controller/productsController');
 const productsRouter = Router();
 
 // CREAT para unico produto ou multiplos produtos
-productsRouter.post('/create/:est', productsController.create);
+productsRouter.post('/create', productsController.create);
 // READ
 productsRouter.get('/products', productsController.read);
 // UPDATE

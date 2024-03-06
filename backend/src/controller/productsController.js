@@ -4,13 +4,38 @@ const { response } = require('express');
 const registerServices = {
 
   async create(req, res) {
+    const productData = req.body;
+  
     try {
-    const num = req.params
-    const est1 = 1;
-    const est2 = 2;
-    const est3 = 3;
+      if (Array.isArray(productData)) {
+        const products = [];
+        for (const productData of req.body) {
+          const { name, brand, model, data } = productData;
+          for (const item of data) {
+            const { price, color } = item;
+            const product = await productService.create({ name, brand, model, price, color });
+            products.push(product);
+          }
+        }
+        res.status(201).json(products);
+      } else if (productData.name && productData.brand && productData.model && productData.price && productData.color) {
+        const product = await productService.create(req.body);
+        res.status(201).json(product);
+      } else if (productData.name && productData.details && productData.details.brand && productData.details.model && productData.price) {
+        const { name, details, price } = req.body;
+        const { brand, model, color } = details;
+        const product = await productService.create({ name, brand, model, price, color });
+        res.status(201).json(product);
+      } else {
+        throw new Error('Dados inválidos');
+      }
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  },
 
-    if(num.est == est1) return await productService.create(req.body);
+
+   /*  if(num.est == est1) return await productService.create(req.body);
 
     if(num.est == est2){
         const {name, details, price} = req.body;
@@ -34,7 +59,7 @@ const registerServices = {
   } catch (error) {
       res.status(400).json({ message: error.message });
   }
-  },
+  }, */
 
 
   async read(req, res) {

@@ -18,16 +18,15 @@ const registerService = {
     if (error) throw new ValidateError(401, error.message);
 
     const { name, email, password } = body;
-    console.log(body);
 
-    const dataValues = await models.User.findOne({
+    const dataValues = await models.users.findOne({
       where: { name, email },
     });
     if (dataValues) throw new ValidateError(400, 'User already exists');
 
     const jwtPass = setToken({ name, email, password })
     const newUser = { name, email, password: jwtPass };
-    const createUser = await models.User.create(newUser);
+    const createUser = await models.users.create(newUser);
     return createUser;
   },
 };

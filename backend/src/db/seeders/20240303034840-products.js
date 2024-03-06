@@ -11,6 +11,15 @@ module.exports = {
         color: "red",
         createdAt: new Date(),
         updatedAt: new Date(),
+      }, 
+      {
+        name: "Iphone 14 Pro",
+        brand: "Iphone",
+        model: "14 Pro",
+        price:  30000,
+        color: "silver",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
     ], {});
   },
