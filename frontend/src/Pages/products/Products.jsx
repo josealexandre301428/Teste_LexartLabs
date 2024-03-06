@@ -46,7 +46,11 @@ export default function Products() {
 
   const handleFetch = async () => {
     try {
-      const product = await api.get('/products');
+      const product = await api.get('/products',{
+        headers: {
+          Authorization: "Bearer" + "ChJ1x0zql7jLqoI0gYCTIOSs"
+        }
+      });
       setProducts(product.data);
     } catch (error) {
       throw new Error();
