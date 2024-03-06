@@ -24,7 +24,7 @@
     "joi": "^17.12.2",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
-    "node": "^21",
+    "node": "^16",
     "nodemon": "^3.1.0",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
